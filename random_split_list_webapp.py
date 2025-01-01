@@ -1,3 +1,5 @@
+# Please check out the HTML file instead at index.thml
+
 from flask import Flask, request, render_template_string
 import random
 

@@ -1,3 +1,5 @@
+# There's a webapp version at index.thml
+
 import random
 
 def split_list_into_groups(incl, m):

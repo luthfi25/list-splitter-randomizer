@@ -1,0 +1,66 @@
+<!-- Webapp for GitHub Pages -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>List Splitter Randomizer</title>
+    <script>
+      function splitListIntoGroups() {
+        var numbers = document.getElementById("numbers").value.split(',').map(Number).filter(Boolean);
+        var groupsCount = parseInt(document.getElementById("groups").value);
+        var groups = [];
+        
+        // Shuffle the list randomly
+        for (let i = numbers.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
+        }
+        
+        // Calculate the size of each group
+        var groupSizes = Array(groupsCount).fill(Math.floor(numbers.length / groupsCount));
+        for (let i = 0; i < numbers.length % groupsCount; i++) {
+          groupSizes[i]++;
+        }
+        
+        // Distribute elements into groups
+        let start = 0;
+        for (let size of groupSizes) {
+          groups.push(numbers.slice(start, start + size).sort((a, b) => a - b));
+          start += size;
+        }
+        
+        // Display the groups
+        var resultDiv = document.getElementById("result");
+        resultDiv.innerHTML = "";
+        groups.forEach((group, index) => {
+          var groupDiv = document.createElement("div");
+          groupDiv.innerHTML = `<h3>Group ${index + 1}</h3><ul id="group-${index + 1}">${group.map(item => `<li>${item}</li>`).join('')}</ul><button onclick="copyToClipboard('group-${index + 1}')">Copy to Clipboard</button>`;
+          resultDiv.appendChild(groupDiv);
+        });
+      }
+
+      function copyToClipboard(groupId) {
+        var copyText = document.getElementById(groupId).innerText;
+        var textArea = document.createElement("textarea");
+        textArea.value = copyText;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("Copy");
+        textArea.remove();
+        alert("Copied to clipboard");
+      }
+    </script>
+  </head>
+  <body>
+    <h1>List Splitter Randomizer</h1>
+    <form onsubmit="splitListIntoGroups(); return false;">
+      <label for="numbers">Enter numbers (comma-separated):</label><br>
+      <input type="text" id="numbers" name="numbers" required><br>
+      <label for="groups">Enter number of groups:</label><br>
+      <input type="number" id="groups" name="groups" required><br><br>
+      <input type="submit" value="Submit">
+    </form>
+    <div id="result"></div>
+  </body>
+</html>
