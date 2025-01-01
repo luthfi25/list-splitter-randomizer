@@ -3,9 +3,9 @@ Python script to split and randomize any integer list into any number of groups.
 
 ## Table of Contents
 - [Usage](#usage)
-- [Webapp](#webapp)
 - [Example](#example)
 - [Prerequisites](#prerequisites)
+- [Webapp](#webapp)
 
 ## Usage
 1. Create a file called **input.txt** and place it in the same folder as **random_split_list.py**.
@@ -14,15 +14,6 @@ Python script to split and randomize any integer list into any number of groups.
 4. Run the script by typing `python3 random_split_list.py`.
 
 For any troubles or questions, try asking your friendly Copilot for a more detailed and personalized answer :D
-
-## Webapp
-You can also use this project as a web application. Access the webapp at [https://luthfi25.github.io/list-splitter-randomizer/](https://luthfi25.github.io/list-splitter-randomizer/).
-
-### Instructions
-1. Enter a comma-separated list of integers in the "Enter numbers" field.
-2. Enter the desired number of groups in the "Enter number of groups" field.
-3. Click the "Submit" button to see the randomized groups.
-4. Use the "Copy to Clipboard" button to copy the contents of each group.
 
 ## Example
 **input.txt**:
@@ -50,3 +41,12 @@ You can also use this project as a web application. Access the webapp at [https:
 
 ## Prerequisites
 - Python 3.x
+
+## Webapp
+You can also use this project as a web application. Access the webapp at [https://luthfi25.github.io/list-splitter-randomizer/](https://luthfi25.github.io/list-splitter-randomizer/).
+
+### Instructions
+1. Enter a comma-separated list of integers in the "Enter numbers" field.
+2. Enter the desired number of groups in the "Enter number of groups" field.
+3. Click the "Submit" button to see the randomized groups.
+4. Use the "Copy to Clipboard" button to copy the contents of each group.
